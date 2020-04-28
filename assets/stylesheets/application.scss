@@ -3,14 +3,17 @@ body {
 }
 
 #root {
-  height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  .div {
+    height: 100vh;
+    // display: flex;
+    // align-items: center;
+    // justify-content: center;
+
+  }
 }
 
 .left-scene {
-  flex: 0 0 60%;
+  // flex: 0 0 60%;
   position: sticky;
   display: flex;
   flex-direction: column;
@@ -51,7 +54,8 @@ body {
 }
 
 .right-scene {
-  flex: 0 0 40%;
+  flex: 0 0 50%;
+  flex-wrap: wrap;
   background-color: #ecf0f1;
   overflow: scroll;
 
