@@ -10,11 +10,17 @@ class App extends Component {
 
     this.state = {
       gifs: [],
-      selectGifId: "jOgRWnCyyRqLaCjHMS"
+      selectedGifId: "xT9IgDEI1iZyb2wqo8"
     };
+  }
 
-    this.search();
-  };
+  componentWillMount() {
+    console.log("WILL MOUNT");
+  }
+
+  componentDidMount() {
+    console.log("DID MOUNT");
+  }
 
   search = (query) => {
     // API call
@@ -27,40 +33,40 @@ class App extends Component {
         gifs: result.data
       });
     });
-  };
+  }
 
   selectGif = (id) => {
     this.setState({
       selectedGifId: id
-  });
+    });
+  }
 
   render() {
-    const gifs = [
-      { id: "jOgRWnCyyRqLaCjHMS" },
-      { id: "l0HlCk6LMJ4C0WZxu" }
-    ];
+    console.log("RENDER");
+    // const gifs = [
+    //   { id: "jOgRWnCyyRqLaCjHMS" },
+    //   { id: "l0HlCk6LMJ4C0WZxu" }
+    // ];
 
     return (
-      <div className="row">
-        <div className="card-columns">
-          <div className="card col-sm-8 col-md-8 col-lg-8">
-            <div className="left-scene">
-              <SearchBar searchFunction={this.search} />
-              <div className="selected-gif">
-                <Gif id={this.state.selectGifId} />
-              </div>
+      <div className="card-columns">
+        <div className="card col-sm-8 col-md-8 col-lg-8">
+          <div className="left-scene">
+            <SearchBar searchFunction={this.search} />
+            <div className="selected-gif">
+              <Gif id={this.state.selectedGifId} />
             </div>
           </div>
+        </div>
 
-          <div className="card col-sm-4 col-md-4 col-lg-4">
-            <div className="right-scene">
-              <GifList gifs={this.state.gifs} selectGif={this.selectGif} />
-            </div>
+        <div className="card col-sm-4 col-md-4 col-lg-4">
+          <div className="right-scene">
+            <GifList gifs={this.state.gifs} selectGif={this.selectGif} />
           </div>
         </div>
       </div>
     );
-  };
+  }
 }
 
 export default App;
